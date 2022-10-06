@@ -1,0 +1,1249 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+\hypertarget{defining-the-question}{%
+\section{1. Defining the question}\label{defining-the-question}}
+
+\hypertarget{a-specifiying-the-data-analytic-question}{%
+\subsection{a) Specifiying the data analytic
+question}\label{a-specifiying-the-data-analytic-question}}
+
+Given several variables such as Credit History and Income, is an
+individual eligible to a loan? i.e should their loan status be `Y'(for
+Yes) or `N'(for No)?
+
+\hypertarget{b-defining-the-metric-for-success}{%
+\subsection{b) Defining the metric for
+success}\label{b-defining-the-metric-for-success}}
+
+Build a prediction/classification model with 80\% accuracy
+
+\hypertarget{c-understanding-the-context}{%
+\subsection{c) Understanding the
+context}\label{c-understanding-the-context}}
+
+The desire to re-imagine credit default prediction by applying Machine
+Learning techniques such as Logistic regression,Naive Bayes and Decision
+Trees on available data. At the moment most loans are given based on
+credit history. This project will serve as a starting point in learning
+more about credit eligibility and the factors influencing it.
+
+\hypertarget{d-recording-the-experimental-design}{%
+\subsection{d) Recording the experimental
+design}\label{d-recording-the-experimental-design}}
+
+\begin{enumerate}
+\def\labelenumi{\Roman{enumi})}
+\tightlist
+\item
+  Read the data
+\item
+  Checking the data
+\item
+  Tidying the dataset
+\item
+  EDA
+\item
+  Deploying our model
+\item
+  Discussion about the model
+\end{enumerate}
+
+\hypertarget{e-data-relevance}{%
+\subsection{e) Data Relevance}\label{e-data-relevance}}
+
+This is a common dataset from Dream Housing Finance company that deals
+in all home loans. It has been used in several loan eligibilty
+classification and prediction challenges on kaggle. For instance,
+\url{https://www.kaggle.com/code/vikasukani/loan-eligibility-prediction-machine-learning/notebook}
+
+\hypertarget{reading-the-data}{%
+\section{2. Reading the data}\label{reading-the-data}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#importing libraries}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{\textquotesingle{}janitor\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Installing package into 'C:/Users/User/AppData/Local/R/win-library/4.2'
+## (as 'lib' is unspecified)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in contrib.url(repos, "source"): trying to use CRAN without setting a mirror
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"Hmisc"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Installing package into 'C:/Users/User/AppData/Local/R/win-library/4.2'
+## (as 'lib' is unspecified)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in contrib.url(repos, "source"): trying to use CRAN without setting a mirror
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"glmnet"}\NormalTok{, }\AttributeTok{repos =} \StringTok{"https://cran.us.r{-}project.org"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Installing package into 'C:/Users/User/AppData/Local/R/win-library/4.2'
+## (as 'lib' is unspecified)
+\end{verbatim}
+
+\begin{verbatim}
+## package 'glmnet' successfully unpacked and MD5 sums checked
+## 
+## The downloaded binary packages are in
+##  C:\Users\User\AppData\Local\Temp\RtmpKWgROy\downloaded_packages
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#loading the libraries}
+\FunctionTok{library}\NormalTok{(janitor)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'janitor'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     chisq.test, fisher.test
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(Hmisc)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: lattice
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: survival
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: Formula
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: ggplot2
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'Hmisc'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     format.pval, units
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:Hmisc':
+## 
+##     src, summarize
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(outliers)}
+\FunctionTok{library}\NormalTok{(caret)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'caret'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:survival':
+## 
+##     cluster
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#reading our data}
+\NormalTok{train }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\FunctionTok{url}\NormalTok{(}\StringTok{"https://raw.githubusercontent.com/mridulrb/Predict{-}loan{-}eligibility{-}using{-}IBM{-}Watson{-}Studio/master/Dataset/Dataset.csv"}\NormalTok{))}
+\FunctionTok{head}\NormalTok{(train)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Loan_ID Gender Married Dependents    Education Self_Employed ApplicantIncome
+## 1 LP001002   Male      No          0     Graduate            No            5849
+## 2 LP001003   Male     Yes          1     Graduate            No            4583
+## 3 LP001005   Male     Yes          0     Graduate           Yes            3000
+## 4 LP001006   Male     Yes          0 Not Graduate            No            2583
+## 5 LP001008   Male      No          0     Graduate            No            6000
+## 6 LP001011   Male     Yes          2     Graduate           Yes            5417
+##   CoapplicantIncome LoanAmount Loan_Amount_Term Credit_History Property_Area
+## 1                 0         NA              360              1         Urban
+## 2              1508        128              360              1         Rural
+## 3                 0         66              360              1         Urban
+## 4              2358        120              360              1         Urban
+## 5                 0        141              360              1         Urban
+## 6              4196        267              360              1         Urban
+##   Loan_Status
+## 1           Y
+## 2           N
+## 3           Y
+## 4           Y
+## 5           Y
+## 6           Y
+\end{verbatim}
+
+\hypertarget{checking-the-data}{%
+\section{3. Checking the data}\label{checking-the-data}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#reviewing the structure of our data to further help with data understanding}
+\FunctionTok{str}\NormalTok{(train)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    614 obs. of  13 variables:
+##  $ Loan_ID          : chr  "LP001002" "LP001003" "LP001005" "LP001006" ...
+##  $ Gender           : chr  "Male" "Male" "Male" "Male" ...
+##  $ Married          : chr  "No" "Yes" "Yes" "Yes" ...
+##  $ Dependents       : chr  "0" "1" "0" "0" ...
+##  $ Education        : chr  "Graduate" "Graduate" "Graduate" "Not Graduate" ...
+##  $ Self_Employed    : chr  "No" "No" "Yes" "No" ...
+##  $ ApplicantIncome  : int  5849 4583 3000 2583 6000 5417 2333 3036 4006 12841 ...
+##  $ CoapplicantIncome: num  0 1508 0 2358 0 ...
+##  $ LoanAmount       : int  NA 128 66 120 141 267 95 158 168 349 ...
+##  $ Loan_Amount_Term : int  360 360 360 360 360 360 360 360 360 360 ...
+##  $ Credit_History   : int  1 1 1 1 1 1 1 0 1 1 ...
+##  $ Property_Area    : chr  "Urban" "Rural" "Urban" "Urban" ...
+##  $ Loan_Status      : chr  "Y" "N" "Y" "Y" ...
+\end{verbatim}
+
+The Loan\_ID, Gender, Married, Dependents, Education, Propoerty Area and
+Loan\_Status are of character datatype ApplicantIncome,LoanAmount,
+Loan\_Amount\_Term and CreditHistory are all integer datatype
+Co-applicantIncome is of numeric datatype
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#changing the character type features into factors because most of them are in fact categorical}
+
+\NormalTok{train }\OtherTok{\textless{}{-}}\NormalTok{ train }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate\_if}\NormalTok{(is.character, as.factor)}
+\FunctionTok{str}\NormalTok{(train)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    614 obs. of  13 variables:
+##  $ Loan_ID          : Factor w/ 614 levels "LP001002","LP001003",..: 1 2 3 4 5 6 7 8 9 10 ...
+##  $ Gender           : Factor w/ 3 levels "","Female","Male": 3 3 3 3 3 3 3 3 3 3 ...
+##  $ Married          : Factor w/ 3 levels "","No","Yes": 2 3 3 3 2 3 3 3 3 3 ...
+##  $ Dependents       : Factor w/ 5 levels "","0","1","2",..: 2 3 2 2 2 4 2 5 4 3 ...
+##  $ Education        : Factor w/ 2 levels "Graduate","Not Graduate": 1 1 1 2 1 1 2 1 1 1 ...
+##  $ Self_Employed    : Factor w/ 3 levels "","No","Yes": 2 2 3 2 2 3 2 2 2 2 ...
+##  $ ApplicantIncome  : int  5849 4583 3000 2583 6000 5417 2333 3036 4006 12841 ...
+##  $ CoapplicantIncome: num  0 1508 0 2358 0 ...
+##  $ LoanAmount       : int  NA 128 66 120 141 267 95 158 168 349 ...
+##  $ Loan_Amount_Term : int  360 360 360 360 360 360 360 360 360 360 ...
+##  $ Credit_History   : int  1 1 1 1 1 1 1 0 1 1 ...
+##  $ Property_Area    : Factor w/ 3 levels "Rural","Semiurban",..: 3 1 3 3 3 3 3 2 3 2 ...
+##  $ Loan_Status      : Factor w/ 2 levels "N","Y": 2 1 2 2 2 2 2 1 2 1 ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{\textquotesingle{}The dimensions for the train data:\textquotesingle{}}\NormalTok{,}\FunctionTok{dim}\NormalTok{(train),}\StringTok{\textquotesingle{}}\SpecialCharTok{\textbackslash{}n}\StringTok{\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## The dimensions for the train data: 614 13
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Previewing the target variable column}
+\FunctionTok{tabyl}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{Loan\_Status)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  train$Loan_Status   n   percent
+##                  N 192 0.3127036
+##                  Y 422 0.6872964
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#About 69\% of people have been approved for loans and 31\% have been rejected}
+\end{Highlighting}
+\end{Shaded}
+
+\#4. Tidying the Dataset
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Checking for missing values}
+\FunctionTok{anyNA}\NormalTok{(train)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{colSums}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(train))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           Loan_ID            Gender           Married        Dependents 
+##                 0                 0                 0                 0 
+##         Education     Self_Employed   ApplicantIncome CoapplicantIncome 
+##                 0                 0                 0                 0 
+##        LoanAmount  Loan_Amount_Term    Credit_History     Property_Area 
+##                22                14                50                 0 
+##       Loan_Status 
+##                 0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#There are missing values in the LoanAmount, Loan\_Amount\_Term and Credit\_History columns}
+\CommentTok{\#will decide what to do with this after EDA}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#missing values}
+\CommentTok{\#imputing the nas for loan amount term with the mode since it is a very disctinct feature in the histograms}
+
+\CommentTok{\#getting the mode for Loan Amount Term}
+\NormalTok{find\_mode }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x) \{}
+\NormalTok{  u }\OtherTok{\textless{}{-}} \FunctionTok{unique}\NormalTok{(x)}
+\NormalTok{  tab }\OtherTok{\textless{}{-}} \FunctionTok{tabulate}\NormalTok{(}\FunctionTok{match}\NormalTok{(x, u))}
+\NormalTok{  u[tab }\SpecialCharTok{==} \FunctionTok{max}\NormalTok{(tab)]}
+\NormalTok{\}}
+
+\FunctionTok{find\_mode}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{Loan\_Amount\_Term)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 360
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#imputing the mode}
+\NormalTok{train}\SpecialCharTok{$}\NormalTok{Loan\_Amount\_Term[}\FunctionTok{is.na}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{Loan\_Amount\_Term)] }\OtherTok{\textless{}{-}} \DecValTok{360}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#opting to fill the NAs in loanAmount with the mean since the values are numerical}
+
+\NormalTok{train}\SpecialCharTok{$}\NormalTok{LoanAmount[}\FunctionTok{is.na}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{LoanAmount)] }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{LoanAmount, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Opting to fill the NAs in credit history with the mode which is 1, from the \textquotesingle{}failed\textquotesingle{} histogram}
+\CommentTok{\#might have deleted but was explored in initial rmd file}
+
+\NormalTok{train}\SpecialCharTok{$}\NormalTok{Credit\_History[}\FunctionTok{is.na}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{Credit\_History)] }\OtherTok{\textless{}{-}} \DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#checking for missing values after understanding and tidying the dataset}
+\FunctionTok{anyNA}\NormalTok{(train)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#successfully tidied up the dataset}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#looking at our train data summary}
+\FunctionTok{summary}\NormalTok{(train)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      Loan_ID       Gender    Married   Dependents        Education  
+##  LP001002:  1         : 13      :  3     : 15     Graduate    :480  
+##  LP001003:  1   Female:112   No :213   0 :345     Not Graduate:134  
+##  LP001005:  1   Male  :489   Yes:398   1 :102                       
+##  LP001006:  1                          2 :101                       
+##  LP001008:  1                          3+: 51                       
+##  LP001011:  1                                                       
+##  (Other) :608                                                       
+##  Self_Employed ApplicantIncome CoapplicantIncome   LoanAmount   
+##     : 32       Min.   :  150   Min.   :    0     Min.   :  9.0  
+##  No :500       1st Qu.: 2878   1st Qu.:    0     1st Qu.:100.2  
+##  Yes: 82       Median : 3812   Median : 1188     Median :129.0  
+##                Mean   : 5403   Mean   : 1621     Mean   :146.4  
+##                3rd Qu.: 5795   3rd Qu.: 2297     3rd Qu.:164.8  
+##                Max.   :81000   Max.   :41667     Max.   :700.0  
+##                                                                 
+##  Loan_Amount_Term Credit_History    Property_Area Loan_Status
+##  Min.   : 12.0    Min.   :0.000   Rural    :179   N:192      
+##  1st Qu.:360.0    1st Qu.:1.000   Semiurban:233   Y:422      
+##  Median :360.0    Median :1.000   Urban    :202              
+##  Mean   :342.4    Mean   :0.855                              
+##  3rd Qu.:360.0    3rd Qu.:1.000                              
+##  Max.   :480.0    Max.   :1.000                              
+## 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# the loan amount, applicant income and coapplicant income column seems to have extreme outliers}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#checking for outliers in numeric and integer features}
+\FunctionTok{outlier}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{ApplicantIncome)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 81000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{outlier}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{CoapplicantIncome)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 41667
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{outlier}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{LoanAmount)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 700
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{outlier}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{Loan\_Amount\_Term)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 12
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# there are outliers in some of the numeric and integer features in the dataset}
+\CommentTok{\# visualizing the outliers in all int columns}
+
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\FunctionTok{boxplot}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{ApplicantIncome, }\AttributeTok{main =} \StringTok{"Applicant Income"}\NormalTok{)}
+\FunctionTok{boxplot}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{CoapplicantIncome, }\AttributeTok{main =} \StringTok{"Coapplicant Income"}\NormalTok{)}
+\FunctionTok{boxplot}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{LoanAmount, }\AttributeTok{main =} \StringTok{"Loan Amount"}\NormalTok{)}
+\FunctionTok{boxplot}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{Loan\_Amount\_Term, }\AttributeTok{main =} \StringTok{"Loan Amount Term"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Final-Loan-Eligibility-Project_files/figure-latex/unnamed-chunk-16-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{boxplot}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{Credit\_History, }\AttributeTok{main =} \StringTok{"Credit History"}\NormalTok{)}
+\CommentTok{\#all of the integer columns have outliers except for Credit\_History}
+\CommentTok{\#The visualizations for outlier detection also serve as univariate analysis for integer variables}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Final-Loan-Eligibility-Project_files/figure-latex/unnamed-chunk-16-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#viewing histograms of the outliers}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\FunctionTok{hist}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{LoanAmount, }\AttributeTok{breaks =} \DecValTok{50}\NormalTok{, }\AttributeTok{main =} \StringTok{"Loan Amount"}\NormalTok{)}
+\FunctionTok{hist}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{ApplicantIncome, }\AttributeTok{breaks =} \DecValTok{50}\NormalTok{, }\AttributeTok{main =} \StringTok{"Applicant Income"}\NormalTok{)}
+\FunctionTok{hist}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{CoapplicantIncome, }\AttributeTok{breaks =} \DecValTok{50}\NormalTok{, }\AttributeTok{main =} \StringTok{"Coapplicant Income"}\NormalTok{)}
+\FunctionTok{hist}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{Loan\_Amount\_Term, }\AttributeTok{breaks =} \DecValTok{50}\NormalTok{, }\AttributeTok{main =} \StringTok{"Loan Amount Term"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Final-Loan-Eligibility-Project_files/figure-latex/unnamed-chunk-17-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#hist(train$Credit\_History, breaks = 50, main = "Credit History")}
+\CommentTok{\#this was where I noticed that the credit\_History is probably a factor so after re{-}arranging code this doesn\textquotesingle{}t work anymore}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{handling-outliers-and-missing-values}{%
+\subsection{Handling outliers and missing
+values}\label{handling-outliers-and-missing-values}}
+
+I chose not to drop outliers because it is normal for some people to
+apply for very big loans as well as have few but extremely high incomes
+in a population
+
+From the histograms, the CreditHistory plot looks odd. This is because
+CreditHistory is not numeric but rather a category showing whether or
+not one has credit history.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#changing creditHistory to a factor}
+
+\NormalTok{train}\SpecialCharTok{$}\NormalTok{Credit\_History }\OtherTok{=} \FunctionTok{as.factor}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{Credit\_History)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{exploratory-data-analysis}{%
+\section{5. Exploratory Data Analysis}\label{exploratory-data-analysis}}
+
+\hypertarget{a-univariate-analysis-of-categorical-variables}{%
+\subsection{a) Univariate Analysis of Categorical
+Variables}\label{a-univariate-analysis-of-categorical-variables}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#barplots of categorical variables}
+
+\FunctionTok{barplot}\NormalTok{(}\FunctionTok{table}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{Gender), }\AttributeTok{main=}\StringTok{"Barplot of Gender"}\NormalTok{,}\AttributeTok{xlab=}\StringTok{"Gender"}\NormalTok{, }\AttributeTok{col=} \FunctionTok{rainbow}\NormalTok{(}\DecValTok{3}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Final-Loan-Eligibility-Project_files/figure-latex/unnamed-chunk-19-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{barplot}\NormalTok{(}\FunctionTok{table}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{Married), }\AttributeTok{main=}\StringTok{"Barplot of Married"}\NormalTok{,}\AttributeTok{xlab=}\StringTok{"Married"}\NormalTok{, }\AttributeTok{col=} \FunctionTok{rainbow}\NormalTok{(}\DecValTok{3}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Final-Loan-Eligibility-Project_files/figure-latex/unnamed-chunk-19-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{barplot}\NormalTok{(}\FunctionTok{table}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{Dependents), }\AttributeTok{main=}\StringTok{"Barplot of Dependents"}\NormalTok{,}\AttributeTok{xlab=}\StringTok{"Dependents"}\NormalTok{, }\AttributeTok{col=} \FunctionTok{rainbow}\NormalTok{(}\DecValTok{5}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Final-Loan-Eligibility-Project_files/figure-latex/unnamed-chunk-19-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{barplot}\NormalTok{(}\FunctionTok{table}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{Education), }\AttributeTok{main=}\StringTok{"Barplot of Education"}\NormalTok{,}\AttributeTok{xlab=}\StringTok{"Education"}\NormalTok{, }\AttributeTok{col=} \FunctionTok{rainbow}\NormalTok{(}\DecValTok{2}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Final-Loan-Eligibility-Project_files/figure-latex/unnamed-chunk-19-4.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{barplot}\NormalTok{(}\FunctionTok{table}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{Self\_Employed), }\AttributeTok{main=}\StringTok{"Barplot of Self Employed"}\NormalTok{,}\AttributeTok{xlab=}\StringTok{"Self Employed"}\NormalTok{, }\AttributeTok{col=} \FunctionTok{rainbow}\NormalTok{(}\DecValTok{3}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Final-Loan-Eligibility-Project_files/figure-latex/unnamed-chunk-19-5.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{barplot}\NormalTok{(}\FunctionTok{table}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{Gender), }\AttributeTok{main=}\StringTok{"Barplot of Property Area"}\NormalTok{,}\AttributeTok{xlab=}\StringTok{"Property Area"}\NormalTok{, }\AttributeTok{col=} \FunctionTok{rainbow}\NormalTok{(}\DecValTok{3}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Final-Loan-Eligibility-Project_files/figure-latex/unnamed-chunk-19-6.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{barplot}\NormalTok{(}\FunctionTok{table}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{Loan\_Status), }\AttributeTok{main=}\StringTok{"Barplot of Loan Status"}\NormalTok{,}\AttributeTok{xlab=}\StringTok{"Loan Status"}\NormalTok{, }\AttributeTok{col=} \FunctionTok{rainbow}\NormalTok{(}\DecValTok{2}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Final-Loan-Eligibility-Project_files/figure-latex/unnamed-chunk-19-7.pdf}
+Majority of the individuals represented in the dataset: a) Male gender
+b) Married c) Have 0 dependents d) Are graduates e) are not
+self-employed f) have a loan status of `Y'
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#correctly visualizing CreditHistory}
+\FunctionTok{barplot}\NormalTok{(}\FunctionTok{table}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{Credit\_History), }\AttributeTok{main=}\StringTok{"Barplot of Credit History"}\NormalTok{,}\AttributeTok{xlab=}\StringTok{"Credit History"}\NormalTok{, }\AttributeTok{col=} \FunctionTok{rainbow}\NormalTok{(}\DecValTok{2}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Final-Loan-Eligibility-Project_files/figure-latex/unnamed-chunk-20-1.pdf}
+Most of the people in the dataset have a credit history
+
+\hypertarget{b-bivariate-analysis}{%
+\subsection{b) Bivariate Analysis}\label{b-bivariate-analysis}}
+
+To simplify this step variables will be plotted against our target
+variable, LoanStatus
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{counts }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{Loan\_Status, train}\SpecialCharTok{$}\NormalTok{Gender)}
+\FunctionTok{barplot}\NormalTok{(counts, }\AttributeTok{main=}\StringTok{"Loan Status by Gender"}\NormalTok{,}
+        \AttributeTok{xlab=}\StringTok{"Gender"}\NormalTok{, }\AttributeTok{col=}\FunctionTok{c}\NormalTok{(}\StringTok{"darkgrey"}\NormalTok{,}\StringTok{"maroon"}\NormalTok{),}
+        \AttributeTok{legend =} \FunctionTok{rownames}\NormalTok{(counts))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Final-Loan-Eligibility-Project_files/figure-latex/unnamed-chunk-21-1.pdf}
+Majority of borrowers are male
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{counts2 }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{Loan\_Status, train}\SpecialCharTok{$}\NormalTok{Education)}
+\FunctionTok{barplot}\NormalTok{(counts2, }\AttributeTok{main=}\StringTok{"Loan Status by Education"}\NormalTok{,}
+        \AttributeTok{xlab=}\StringTok{"Education"}\NormalTok{, }\AttributeTok{col=}\FunctionTok{c}\NormalTok{(}\StringTok{"darkgrey"}\NormalTok{,}\StringTok{"maroon"}\NormalTok{),}
+        \AttributeTok{legend =} \FunctionTok{rownames}\NormalTok{(counts2))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Final-Loan-Eligibility-Project_files/figure-latex/unnamed-chunk-22-1.pdf}
+Majority of borrowers are graduates
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{counts3 }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{Loan\_Status, train}\SpecialCharTok{$}\NormalTok{Married)}
+\FunctionTok{barplot}\NormalTok{(counts3, }\AttributeTok{main=}\StringTok{"Loan Status by Married"}\NormalTok{,}
+        \AttributeTok{xlab=}\StringTok{"Married"}\NormalTok{, }\AttributeTok{col=}\FunctionTok{c}\NormalTok{(}\StringTok{"darkgrey"}\NormalTok{,}\StringTok{"maroon"}\NormalTok{),}
+        \AttributeTok{legend =} \FunctionTok{rownames}\NormalTok{(counts3))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Final-Loan-Eligibility-Project_files/figure-latex/unnamed-chunk-23-1.pdf}
+Most borrowers are married
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{counts4 }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{Loan\_Status, train}\SpecialCharTok{$}\NormalTok{Self\_Employed)}
+\FunctionTok{barplot}\NormalTok{(counts4, }\AttributeTok{main=}\StringTok{"Loan Status by Self Employed"}\NormalTok{,}
+        \AttributeTok{xlab=}\StringTok{"Self\_Employed"}\NormalTok{, }\AttributeTok{col=}\FunctionTok{c}\NormalTok{(}\StringTok{"darkgrey"}\NormalTok{,}\StringTok{"maroon"}\NormalTok{),}
+        \AttributeTok{legend =} \FunctionTok{rownames}\NormalTok{(counts4))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Final-Loan-Eligibility-Project_files/figure-latex/unnamed-chunk-24-1.pdf}
+Most of the borrowers are not self-employed
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{counts5 }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{Loan\_Status, train}\SpecialCharTok{$}\NormalTok{Property\_Area)}
+\FunctionTok{barplot}\NormalTok{(counts5, }\AttributeTok{main=}\StringTok{"Loan Status by Property\_Area"}\NormalTok{,}
+        \AttributeTok{xlab=}\StringTok{"Property\_Area"}\NormalTok{, }\AttributeTok{col=}\FunctionTok{c}\NormalTok{(}\StringTok{"darkgrey"}\NormalTok{,}\StringTok{"maroon"}\NormalTok{),}
+        \AttributeTok{legend =} \FunctionTok{rownames}\NormalTok{(counts5))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Final-Loan-Eligibility-Project_files/figure-latex/unnamed-chunk-25-1.pdf}
+\$the property locations are almost equally distributed among rural,
+urban and semi-urban areas. However, the majority of the homes are in
+Semiurban areas
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{counts6 }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{Loan\_Status, train}\SpecialCharTok{$}\NormalTok{Credit\_History)}
+\FunctionTok{barplot}\NormalTok{(counts6, }\AttributeTok{main=}\StringTok{"Loan Status by Credit\_History"}\NormalTok{,}
+        \AttributeTok{xlab=}\StringTok{"Credit\_History"}\NormalTok{, }\AttributeTok{col=}\FunctionTok{c}\NormalTok{(}\StringTok{"darkgrey"}\NormalTok{,}\StringTok{"maroon"}\NormalTok{),}
+        \AttributeTok{legend =} \FunctionTok{rownames}\NormalTok{(counts5))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Final-Loan-Eligibility-Project_files/figure-latex/unnamed-chunk-26-1.pdf}
+From the proportions, having a credit history makes it far more likely
+for you to have a loan Status of `Y'.
+
+\hypertarget{data-pre-processing}{%
+\section{6.Data Pre-processing}\label{data-pre-processing}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#checking the proportion of the target variable}
+\FunctionTok{prop.table}\NormalTok{(}\FunctionTok{table}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{Loan\_Status))}\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{round}\NormalTok{(}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##    N    Y 
+## 0.31 0.69
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#The data has a ratio of close to 1:2}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{feature-engineering-and-log-transformation}{%
+\subsection{Feature Engineering and Log
+transformation}\label{feature-engineering-and-log-transformation}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#from the histograms in the outlier/univariate analysis section, the data has extreme outliers which I chose to keep. The data is also skewed. }
+\CommentTok{\#We are going to carry out a log transform to normalize the data, thus reducing bias}
+
+\NormalTok{train}\SpecialCharTok{$}\NormalTok{LogLoanAmount }\OtherTok{\textless{}{-}} \FunctionTok{log}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{LoanAmount)}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\FunctionTok{hist}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{LogLoanAmount, }
+     \AttributeTok{main=}\StringTok{"Histogram for Loan Amount"}\NormalTok{, }
+     \AttributeTok{xlab=}\StringTok{"Loan Amount"}\NormalTok{, }
+     \AttributeTok{border=}\StringTok{"blue"}\NormalTok{, }
+     \AttributeTok{col=}\StringTok{"maroon"}\NormalTok{,}
+     \AttributeTok{las=}\DecValTok{1}\NormalTok{, }
+     \AttributeTok{breaks=}\DecValTok{20}\NormalTok{, }\AttributeTok{prob =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{lines}\NormalTok{(}\FunctionTok{density}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{LogLoanAmount), }\AttributeTok{col=}\StringTok{\textquotesingle{}black\textquotesingle{}}\NormalTok{, }\AttributeTok{lwd=}\DecValTok{3}\NormalTok{)}
+\FunctionTok{boxplot}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{LogLoanAmount, }\AttributeTok{col=}\StringTok{\textquotesingle{}maroon\textquotesingle{}}\NormalTok{,}\AttributeTok{xlab =} \StringTok{\textquotesingle{}Income\textquotesingle{}}\NormalTok{, }\AttributeTok{main =} \StringTok{\textquotesingle{}Box Plot for Loan Amount\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Final-Loan-Eligibility-Project_files/figure-latex/unnamed-chunk-28-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#combining the applicant income and coapplicant income, this seems to be the most conventional way of working with this dataset}
+\CommentTok{\#Note: The applicantincome and coapplicantIncome both have extreme outliers so they are subject to log transformation}
+\NormalTok{train}\SpecialCharTok{$}\NormalTok{Income }\OtherTok{\textless{}{-}}\NormalTok{ train}\SpecialCharTok{$}\NormalTok{ApplicantIncome }\SpecialCharTok{+}\NormalTok{ train}\SpecialCharTok{$}\NormalTok{CoapplicantIncome}
+\NormalTok{train}\SpecialCharTok{$}\NormalTok{ApplicantIncome }\OtherTok{\textless{}{-}} \ConstantTok{NULL}
+\NormalTok{train}\SpecialCharTok{$}\NormalTok{CoapplicantIncome }\OtherTok{\textless{}{-}} \ConstantTok{NULL}
+\NormalTok{train}\SpecialCharTok{$}\NormalTok{LogIncome }\OtherTok{\textless{}{-}} \FunctionTok{log}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{Income)}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\FunctionTok{hist}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{LogIncome, }
+     \AttributeTok{main=}\StringTok{"Histogram for Combined Income"}\NormalTok{, }
+     \AttributeTok{xlab=}\StringTok{"Income"}\NormalTok{, }
+     \AttributeTok{border=}\StringTok{"blue"}\NormalTok{, }
+     \AttributeTok{col=}\StringTok{"maroon"}\NormalTok{,}
+     \AttributeTok{las=}\DecValTok{1}\NormalTok{, }
+     \AttributeTok{breaks=}\DecValTok{50}\NormalTok{, }\AttributeTok{prob =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{lines}\NormalTok{(}\FunctionTok{density}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{LogIncome), }\AttributeTok{col=}\StringTok{\textquotesingle{}black\textquotesingle{}}\NormalTok{, }\AttributeTok{lwd=}\DecValTok{3}\NormalTok{)}
+\FunctionTok{boxplot}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{LogIncome, }\AttributeTok{col=}\StringTok{\textquotesingle{}maroon\textquotesingle{}}\NormalTok{,}\AttributeTok{xlab =} \StringTok{\textquotesingle{}Income\textquotesingle{}}\NormalTok{, }\AttributeTok{main =} \StringTok{\textquotesingle{}Box Plot for Combined Income\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Final-Loan-Eligibility-Project_files/figure-latex/unnamed-chunk-29-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#the data is somewhat normal, hence will give better results than it would in its initial form}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#reviewing data to see changes}
+\FunctionTok{head}\NormalTok{(train)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Loan_ID Gender Married Dependents    Education Self_Employed LoanAmount
+## 1 LP001002   Male      No          0     Graduate            No   146.4122
+## 2 LP001003   Male     Yes          1     Graduate            No   128.0000
+## 3 LP001005   Male     Yes          0     Graduate           Yes    66.0000
+## 4 LP001006   Male     Yes          0 Not Graduate            No   120.0000
+## 5 LP001008   Male      No          0     Graduate            No   141.0000
+## 6 LP001011   Male     Yes          2     Graduate           Yes   267.0000
+##   Loan_Amount_Term Credit_History Property_Area Loan_Status LogLoanAmount
+## 1              360              1         Urban           Y      4.986426
+## 2              360              1         Rural           N      4.852030
+## 3              360              1         Urban           Y      4.189655
+## 4              360              1         Urban           Y      4.787492
+## 5              360              1         Urban           Y      4.948760
+## 6              360              1         Urban           Y      5.587249
+##   Income LogIncome
+## 1   5849  8.674026
+## 2   6091  8.714568
+## 3   3000  8.006368
+## 4   4941  8.505323
+## 5   6000  8.699515
+## 6   9613  9.170872
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#removing loanAmount and The combined Applicants\textquotesingle{} income i.e. Income variable}
+
+\NormalTok{train}\SpecialCharTok{$}\NormalTok{Income }\OtherTok{\textless{}{-}} \ConstantTok{NULL}
+\NormalTok{train}\SpecialCharTok{$}\NormalTok{LoanAmount }\OtherTok{\textless{}{-}} \ConstantTok{NULL}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#splitting into train and test set at 70\%:30\%}
+\CommentTok{\#due to the size of the data having a slightly smaller train set than usual, the 70:30 split is good to help avoid over{-}fitting}
+
+\CommentTok{\#set.seed(123)}
+\CommentTok{\#sample \textless{}{-} sample.int(n = nrow(train), size = floor(.70*nrow(train)), replace = FALSE)}
+\CommentTok{\#trainn \textless{}{-} train[sample, ]}
+\CommentTok{\#testn  \textless{}{-} train[{-}sample, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\#7. Data Modelling \#\# Logistic Regression
+
+For this prediction I intended to use logistic regression using the
+step-wise feature selection approach, however the model not converging.
+Among the suggested solutions is the use of lasso regression, which is
+what I found easiest to implement.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#splitting the data}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\CommentTok{\#dropping the LoanID column as it causes dimensionality problems}
+\NormalTok{train }\OtherTok{\textless{}{-}}\NormalTok{ train[}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{]}
+\NormalTok{training.samples }\OtherTok{\textless{}{-}}\NormalTok{ train}\SpecialCharTok{$}\NormalTok{Loan\_Status }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{createDataPartition}\NormalTok{(}\AttributeTok{p =} \FloatTok{0.7}\NormalTok{, }\AttributeTok{list =} \ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{train.data  }\OtherTok{\textless{}{-}}\NormalTok{ train[training.samples, ]}
+\NormalTok{test.data }\OtherTok{\textless{}{-}}\NormalTok{ train[}\SpecialCharTok{{-}}\NormalTok{training.samples, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Creating Dummy variables for categorical predictor variables}
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{model.matrix}\NormalTok{(Loan\_Status}\SpecialCharTok{\textasciitilde{}}\NormalTok{., train.data)[,}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{]}
+\CommentTok{\# Convert the outcome (class) to a numerical variable}
+\NormalTok{y }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(train.data}\SpecialCharTok{$}\NormalTok{Loan\_Status }\SpecialCharTok{==} \StringTok{"Y"}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#fitting the penalized lasso regression model}
+\CommentTok{\#loading library}
+\FunctionTok{library}\NormalTok{(glmnet)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: Matrix
+\end{verbatim}
+
+\begin{verbatim}
+## Loaded glmnet 4.1-4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Find the best lambda using cross{-}validation}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{) }
+\NormalTok{cv.lasso }\OtherTok{\textless{}{-}} \FunctionTok{cv.glmnet}\NormalTok{(x, y, }\AttributeTok{alpha =} \DecValTok{1}\NormalTok{, }\AttributeTok{family =} \StringTok{"binomial"}\NormalTok{)}
+\CommentTok{\# Fit the final model on the training data}
+\NormalTok{model }\OtherTok{\textless{}{-}} \FunctionTok{glmnet}\NormalTok{(x, y, }\AttributeTok{alpha =} \DecValTok{1}\NormalTok{, }\AttributeTok{family =} \StringTok{"binomial"}\NormalTok{,}
+                \AttributeTok{lambda =}\NormalTok{ cv.lasso}\SpecialCharTok{$}\NormalTok{lambda.min)}
+\CommentTok{\# Display regression coefficients}
+\FunctionTok{coef}\NormalTok{(model)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 18 x 1 sparse Matrix of class "dgCMatrix"
+##                                s0
+## (Intercept)            -1.1203081
+## GenderFemale            .        
+## GenderMale              .        
+## MarriedNo              -0.5098510
+## MarriedYes              .        
+## Dependents0             .        
+## Dependents1            -0.2449190
+## Dependents2             .        
+## Dependents3+            .        
+## EducationNot Graduate   .        
+## Self_EmployedNo         .        
+## Self_EmployedYes        .        
+## Loan_Amount_Term        .        
+## Credit_History1         3.0231967
+## Property_AreaSemiurban  0.4054779
+## Property_AreaUrban      .        
+## LogLoanAmount          -0.1172669
+## LogIncome               .
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Make predictions on the test data}
+\NormalTok{x.test }\OtherTok{\textless{}{-}} \FunctionTok{model.matrix}\NormalTok{(Loan\_Status }\SpecialCharTok{\textasciitilde{}}\NormalTok{., test.data)[,}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{]}
+\NormalTok{probabilities }\OtherTok{\textless{}{-}}\NormalTok{ model }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{predict}\NormalTok{(}\AttributeTok{newx =}\NormalTok{ x.test)}
+\NormalTok{predicted.classes }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(probabilities }\SpecialCharTok{\textgreater{}} \FloatTok{0.5}\NormalTok{, }\StringTok{"Y"}\NormalTok{, }\StringTok{"N"}\NormalTok{)}
+\CommentTok{\# Model accuracy}
+\NormalTok{observed.classes }\OtherTok{\textless{}{-}}\NormalTok{ test.data}\SpecialCharTok{$}\NormalTok{Loan\_Status}
+\FunctionTok{mean}\NormalTok{(predicted.classes }\SpecialCharTok{==}\NormalTok{ observed.classes)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8360656
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Only CreditHistory has a coefficient greater than 1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{cv.lasso }\OtherTok{\textless{}{-}} \FunctionTok{cv.glmnet}\NormalTok{(x, y, }\AttributeTok{alpha =} \DecValTok{1}\NormalTok{, }\AttributeTok{family =} \StringTok{"binomial"}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(cv.lasso)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Final-Loan-Eligibility-Project_files/figure-latex/unnamed-chunk-37-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#optimal lambda is approximately {-}5}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cv.lasso}\SpecialCharTok{$}\NormalTok{lambda.min}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.01744002
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#This is the exact value of lambda}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#cv.glmnet() finds also the value of lambda that gives the simplest model but also lies within one standard error of the optimal value of lambda. This value is called lambda.1se}
+\NormalTok{cv.lasso}\SpecialCharTok{$}\NormalTok{lambda}\FloatTok{.1}\NormalTok{se}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.09307217
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Using lambda.min as the best lambda, gives the following regression coefficients:}
+\FunctionTok{coef}\NormalTok{(cv.lasso, cv.lasso}\SpecialCharTok{$}\NormalTok{lambda.min)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 18 x 1 sparse Matrix of class "dgCMatrix"
+##                                s1
+## (Intercept)            -1.1204893
+## GenderFemale            .        
+## GenderMale              .        
+## MarriedNo              -0.5097272
+## MarriedYes              .        
+## Dependents0             .        
+## Dependents1            -0.2449054
+## Dependents2             .        
+## Dependents3+            .        
+## EducationNot Graduate   .        
+## Self_EmployedNo         .        
+## Self_EmployedYes        .        
+## Loan_Amount_Term        .        
+## Credit_History1         3.0232058
+## Property_AreaSemiurban  0.4054638
+## Property_AreaUrban      .        
+## LogLoanAmount          -0.1172411
+## LogIncome               .
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Using lambda.1se as the best lambda, gives the following regression coefficients:}
+\FunctionTok{coef}\NormalTok{(cv.lasso, cv.lasso}\SpecialCharTok{$}\NormalTok{lambda}\FloatTok{.1}\NormalTok{se)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 18 x 1 sparse Matrix of class "dgCMatrix"
+##                                s1
+## (Intercept)            -0.7016968
+## GenderFemale            .        
+## GenderMale              .        
+## MarriedNo               .        
+## MarriedYes              .        
+## Dependents0             .        
+## Dependents1             .        
+## Dependents2             .        
+## Dependents3+            .        
+## EducationNot Graduate   .        
+## Self_EmployedNo         .        
+## Self_EmployedYes        .        
+## Loan_Amount_Term        .        
+## Credit_History1         1.7698321
+## Property_AreaSemiurban  .        
+## Property_AreaUrban      .        
+## LogLoanAmount           .        
+## LogIncome               .
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Only credit history has a coefficient greater than 1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Final model with lambda.min}
+\NormalTok{lasso.model }\OtherTok{\textless{}{-}} \FunctionTok{glmnet}\NormalTok{(x, y, }\AttributeTok{alpha =} \DecValTok{1}\NormalTok{, }\AttributeTok{family =} \StringTok{"binomial"}\NormalTok{,}
+                      \AttributeTok{lambda =}\NormalTok{ cv.lasso}\SpecialCharTok{$}\NormalTok{lambda.min)}
+\CommentTok{\# Make prediction on test data}
+\NormalTok{x.test }\OtherTok{\textless{}{-}} \FunctionTok{model.matrix}\NormalTok{(Loan\_Status }\SpecialCharTok{\textasciitilde{}}\NormalTok{., test.data)[,}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{]}
+\NormalTok{probabilities }\OtherTok{\textless{}{-}}\NormalTok{ lasso.model }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{predict}\NormalTok{(}\AttributeTok{newx =}\NormalTok{ x.test)}
+\NormalTok{predicted.classes }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(probabilities }\SpecialCharTok{\textgreater{}} \FloatTok{0.5}\NormalTok{, }\StringTok{"Y"}\NormalTok{, }\StringTok{"N"}\NormalTok{)}
+\CommentTok{\# Model accuracy}
+\NormalTok{observed.classes }\OtherTok{\textless{}{-}}\NormalTok{ test.data}\SpecialCharTok{$}\NormalTok{Loan\_Status}
+\FunctionTok{mean}\NormalTok{(predicted.classes }\SpecialCharTok{==}\NormalTok{ observed.classes)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8360656
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Final model with lambda.1se}
+\NormalTok{lasso.model }\OtherTok{\textless{}{-}} \FunctionTok{glmnet}\NormalTok{(x, y, }\AttributeTok{alpha =} \DecValTok{1}\NormalTok{, }\AttributeTok{family =} \StringTok{"binomial"}\NormalTok{,}
+                      \AttributeTok{lambda =}\NormalTok{ cv.lasso}\SpecialCharTok{$}\NormalTok{lambda}\FloatTok{.1}\NormalTok{se)}
+\CommentTok{\# Make prediction on test data}
+\NormalTok{x.test }\OtherTok{\textless{}{-}} \FunctionTok{model.matrix}\NormalTok{(Loan\_Status }\SpecialCharTok{\textasciitilde{}}\NormalTok{., test.data)[,}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{]}
+\NormalTok{probabilities }\OtherTok{\textless{}{-}}\NormalTok{ lasso.model }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{predict}\NormalTok{(}\AttributeTok{newx =}\NormalTok{ x.test)}
+\NormalTok{predicted.classes }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(probabilities }\SpecialCharTok{\textgreater{}} \FloatTok{0.5}\NormalTok{, }\StringTok{"Y"}\NormalTok{, }\StringTok{"N"}\NormalTok{)}
+\CommentTok{\# Model accuracy rate}
+\NormalTok{observed.classes }\OtherTok{\textless{}{-}}\NormalTok{ test.data}\SpecialCharTok{$}\NormalTok{Loan\_Status}
+\FunctionTok{mean}\NormalTok{(predicted.classes }\SpecialCharTok{==}\NormalTok{ observed.classes)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8360656
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Fit the model}
+\NormalTok{full.model }\OtherTok{\textless{}{-}} \FunctionTok{glm}\NormalTok{(Loan\_Status }\SpecialCharTok{\textasciitilde{}}\NormalTok{., }\AttributeTok{data =}\NormalTok{ train.data, }\AttributeTok{family =}\NormalTok{ binomial)}
+\CommentTok{\# Make predictions}
+\NormalTok{probabilities }\OtherTok{\textless{}{-}}\NormalTok{ full.model }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{predict}\NormalTok{(test.data, }\AttributeTok{type =} \StringTok{"response"}\NormalTok{)}
+\NormalTok{predicted.classes }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(probabilities }\SpecialCharTok{\textgreater{}} \FloatTok{0.5}\NormalTok{, }\StringTok{"Y"}\NormalTok{, }\StringTok{"N"}\NormalTok{)}
+\CommentTok{\# Model accuracy}
+\NormalTok{observed.classes }\OtherTok{\textless{}{-}}\NormalTok{ test.data}\SpecialCharTok{$}\NormalTok{Loan\_Status}
+\FunctionTok{mean}\NormalTok{(predicted.classes }\SpecialCharTok{==}\NormalTok{ observed.classes)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8306011
+\end{verbatim}
+
+\hypertarget{further-discussion}{%
+\section{7. Further Discussion}\label{further-discussion}}
+
+From the EDA and interpretation of logistic regression co-efficients,
+the factor that influences an individuals' loan status the most is their
+CreditHistory. This is in line with the hypothesis that most credit is
+given on the basis of historical data. There is a lot room to re-imagine
+credit eligibility by collecting and analyzing more data to understand
+borrowing and payment patterns better.
+
+This data can be subjected to other prediction or classification
+techniques such as decision trees, random forests, SVM and KNN to see
+how much the results vary. However, from other peoples' projects the
+results are very similar pointing at the use of historical data to
+determine loan eligibility.
+
+\end{document}
