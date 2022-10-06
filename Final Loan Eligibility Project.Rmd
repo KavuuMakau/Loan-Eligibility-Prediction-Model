@@ -1,0 +1,434 @@
+---
+Title: Loan Eligibility Project
+Author: Kavuu Magdalen
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(error = TRUE)
+```
+# 1. Defining the question
+## a) Specifiying the data analytic question
+Given several variables such as Credit History and Income, is an individual eligible to a loan? i.e should their loan status be 'Y'(for Yes) or 'N'(for No)?
+
+
+## b) Defining the metric for success
+Build a prediction/classification model with 80% accuracy
+
+## c) Understanding the context
+The desire to re-imagine credit default prediction by applying Machine Learning techniques such as Logistic regression,Naive Bayes and Decision Trees on available data. 
+
+## d) Recording the experimental design
+  I) Read the data
+  II) Checking the data
+  III) Tidying the dataset
+  IV) EDA
+  V) Deploying our model
+  V) Discussion about the model
+
+## e) Data Relevance
+This is a common dataset from Dream Housing Finance company that deals in all home loans. It has been used in several loan eligibilty classification and prediction challenges on kaggle. For instance, https://www.kaggle.com/code/vikasukani/loan-eligibility-prediction-machine-learning/notebook
+
+
+
+# 2. Reading the data
+```{r}
+#importing libraries
+install.packages('janitor')
+install.packages("Hmisc")
+install.packages("glmnet", repos = "https://cran.us.r-project.org")
+```
+
+```{r}
+#loading the libraries
+library(janitor)
+library(Hmisc)
+library(ggplot2)
+library(dplyr)
+library(outliers)
+library(caret)
+```
+
+```{r}
+#reading our data
+train <- read.csv(url("https://raw.githubusercontent.com/mridulrb/Predict-loan-eligibility-using-IBM-Watson-Studio/master/Dataset/Dataset.csv"))
+head(train)
+```
+# 3. Checking the data
+```{r}
+#reviewing the structure of our data to further help with data understanding
+str(train)
+
+```
+The Loan_ID, Gender, Married, Dependents, Education, Propoerty Area and Loan_Status are of character datatype
+ApplicantIncome,LoanAmount, Loan_Amount_Term and CreditHistory are all integer datatype
+Co-applicantIncome is of numeric datatype
+
+```{r}
+#changing the character type features into factors because most of them are in fact categorical
+
+train <- train %>% mutate_if(is.character, as.factor)
+str(train)
+```
+
+```{r}
+cat('The dimensions for the train data:',dim(train),'\n')
+```
+
+```{r}
+#Previewing the target variable column
+tabyl(train$Loan_Status)
+#About 69% of people have been approved for loans and 31% have been rejected
+```
+#4. Tidying the Dataset
+```{r}
+# Checking for missing values
+anyNA(train)
+colSums(is.na(train))
+#There are missing values in the LoanAmount, Loan_Amount_Term and Credit_History columns
+#will decide what to do with this after EDA
+```
+```{r}
+#missing values
+#imputing the nas for loan amount term with the mode since it is a very disctinct feature in the histograms
+
+#getting the mode for Loan Amount Term
+find_mode <- function(x) {
+  u <- unique(x)
+  tab <- tabulate(match(x, u))
+  u[tab == max(tab)]
+}
+
+find_mode(train$Loan_Amount_Term)
+```
+
+```{r}
+#imputing the mode
+train$Loan_Amount_Term[is.na(train$Loan_Amount_Term)] <- 360
+```
+
+```{r}
+#opting to fill the NAs in loanAmount with the mean since the values are numerical
+
+train$LoanAmount[is.na(train$LoanAmount)] <- mean(train$LoanAmount, na.rm = TRUE)
+```
+
+```{r}
+#Opting to fill the NAs in credit history with the mode which is 1, from the 'failed' histogram
+#might have deleted but was explored in initial rmd file
+
+train$Credit_History[is.na(train$Credit_History)] <- 1
+```
+
+```{r}
+#checking for missing values after understanding and tidying the dataset
+anyNA(train)
+#successfully tidied up the dataset
+
+```
+
+```{r}
+#looking at our train data summary
+summary(train)
+# the loan amount, applicant income and coapplicant income column seems to have extreme outliers
+```
+
+```{r}
+#checking for outliers in numeric and integer features
+outlier(train$ApplicantIncome)
+outlier(train$CoapplicantIncome)
+outlier(train$LoanAmount)
+outlier(train$Loan_Amount_Term)
+# there are outliers in some of the numeric and integer features in the dataset
+# visualizing the outliers in all int columns
+
+par(mfrow = c(2,2))
+boxplot(train$ApplicantIncome, main = "Applicant Income")
+boxplot(train$CoapplicantIncome, main = "Coapplicant Income")
+boxplot(train$LoanAmount, main = "Loan Amount")
+boxplot(train$Loan_Amount_Term, main = "Loan Amount Term")
+boxplot(train$Credit_History, main = "Credit History")
+#all of the integer columns have outliers except for Credit_History
+#The visualizations for outlier detection also serve as univariate analysis for integer variables
+```
+
+```{r}
+#viewing histograms of the outliers
+par(mfrow = c(2,2))
+hist(train$LoanAmount, breaks = 50, main = "Loan Amount")
+hist(train$ApplicantIncome, breaks = 50, main = "Applicant Income")
+hist(train$CoapplicantIncome, breaks = 50, main = "Coapplicant Income")
+hist(train$Loan_Amount_Term, breaks = 50, main = "Loan Amount Term")
+#hist(train$Credit_History, breaks = 50, main = "Credit History")
+#this was where I noticed that the credit_History is probably a factor so after re-arranging code this doesn't work anymore
+```
+
+## Handling outliers and missing values
+
+I chose not to drop outliers because it is normal for some people to apply for very big loans as well as have few but extremely high incomes in a population
+
+From the histograms, the CreditHistory plot looks odd. This is because CreditHistory is not numeric but rather a category showing whether or not one has credit history.
+
+```{r}
+#changing creditHistory to a factor
+
+train$Credit_History = as.factor(train$Credit_History)
+```
+
+# 5. Exploratory Data Analysis
+## a) Univariate Analysis of Categorical Variables
+```{r}
+#barplots of categorical variables
+
+barplot(table(train$Gender), main="Barplot of Gender",xlab="Gender", col= rainbow(3))
+barplot(table(train$Married), main="Barplot of Married",xlab="Married", col= rainbow(3))
+barplot(table(train$Dependents), main="Barplot of Dependents",xlab="Dependents", col= rainbow(5))
+barplot(table(train$Education), main="Barplot of Education",xlab="Education", col= rainbow(2))
+barplot(table(train$Self_Employed), main="Barplot of Self Employed",xlab="Self Employed", col= rainbow(3))
+barplot(table(train$Gender), main="Barplot of Property Area",xlab="Property Area", col= rainbow(3))
+barplot(table(train$Loan_Status), main="Barplot of Loan Status",xlab="Loan Status", col= rainbow(2))
+```
+Majority of the individuals represented in the dataset:
+a) Male gender
+b) Married
+c) Have 0 dependents
+d) Are graduates
+e) are not self-employed
+f) have a loan status of 'Y'
+
+```{r}
+#correctly visualizing CreditHistory
+barplot(table(train$Credit_History), main="Barplot of Credit History",xlab="Credit History", col= rainbow(2))
+```
+Most of the people in the dataset have a credit history
+
+
+## b) Bivariate Analysis 
+To simplify this step variables will be plotted against our target variable, LoanStatus
+```{r}
+counts <- table(train$Loan_Status, train$Gender)
+barplot(counts, main="Loan Status by Gender",
+        xlab="Gender", col=c("darkgrey","maroon"),
+        legend = rownames(counts))
+```
+Majority of borrowers are male
+
+```{r}
+counts2 <- table(train$Loan_Status, train$Education)
+barplot(counts2, main="Loan Status by Education",
+        xlab="Education", col=c("darkgrey","maroon"),
+        legend = rownames(counts2))
+```
+Majority of borrowers are graduates
+
+```{r}
+counts3 <- table(train$Loan_Status, train$Married)
+barplot(counts3, main="Loan Status by Married",
+        xlab="Married", col=c("darkgrey","maroon"),
+        legend = rownames(counts3))
+```
+Most borrowers are married
+```{r}
+counts4 <- table(train$Loan_Status, train$Self_Employed)
+barplot(counts4, main="Loan Status by Self Employed",
+        xlab="Self_Employed", col=c("darkgrey","maroon"),
+        legend = rownames(counts4))
+```
+Most of the borrowers are not self-employed
+
+```{r}
+counts5 <- table(train$Loan_Status, train$Property_Area)
+barplot(counts5, main="Loan Status by Property_Area",
+        xlab="Property_Area", col=c("darkgrey","maroon"),
+        legend = rownames(counts5))
+```
+$the property locations are almost equally distributed among rural, urban and semi-urban areas. However, the majority of the homes are in Semiurban areas
+
+```{r}
+counts6 <- table(train$Loan_Status, train$Credit_History)
+barplot(counts6, main="Loan Status by Credit_History",
+        xlab="Credit_History", col=c("darkgrey","maroon"),
+        legend = rownames(counts5))
+```
+From the proportions, having a credit history makes it far more likely for you to have a loan Status of 'Y'. 
+
+# 6.Data Pre-processing
+```{r}
+#checking the proportion of the target variable
+prop.table(table(train$Loan_Status))%>% round(2)
+#The data has a ratio of close to 1:2
+```
+## Feature Engineering and Log transformation
+```{r}
+#from the histograms in the outlier/univariate analysis section, the data has extreme outliers which I chose to keep. The data is also skewed. 
+#We are going to carry out a log transform to normalize the data, thus reducing bias
+
+train$LogLoanAmount <- log(train$LoanAmount)
+par(mfrow=c(1,2))
+hist(train$LogLoanAmount, 
+     main="Histogram for Loan Amount", 
+     xlab="Loan Amount", 
+     border="blue", 
+     col="maroon",
+     las=1, 
+     breaks=20, prob = TRUE)
+lines(density(train$LogLoanAmount), col='black', lwd=3)
+boxplot(train$LogLoanAmount, col='maroon',xlab = 'Income', main = 'Box Plot for Loan Amount')
+```
+
+```{r}
+#combining the applicant income and coapplicant income, this seems to be the most conventional way of working with this dataset
+#Note: The applicantincome and coapplicantIncome both have extreme outliers so they are subject to log transformation
+train$Income <- train$ApplicantIncome + train$CoapplicantIncome
+train$ApplicantIncome <- NULL
+train$CoapplicantIncome <- NULL
+train$LogIncome <- log(train$Income)
+par(mfrow=c(1,2))
+hist(train$LogIncome, 
+     main="Histogram for Combined Income", 
+     xlab="Income", 
+     border="blue", 
+     col="maroon",
+     las=1, 
+     breaks=50, prob = TRUE)
+lines(density(train$LogIncome), col='black', lwd=3)
+boxplot(train$LogIncome, col='maroon',xlab = 'Income', main = 'Box Plot for Combined Income')
+
+#the data is somewhat normal, hence will give better results than it would in its initial form
+```
+
+```{r}
+#reviewing data to see changes
+head(train)
+```
+
+```{r}
+#removing loanAmount and The combined Applicants' income i.e. Income variable
+
+train$Income <- NULL
+train$LoanAmount <- NULL
+```
+
+
+```{r}
+#splitting into train and test set at 70%:30%
+#due to the size of the data having a slightly smaller train set than usual, the 70:30 split is good to help avoid over-fitting
+
+#set.seed(123)
+#sample <- sample.int(n = nrow(train), size = floor(.70*nrow(train)), replace = FALSE)
+#trainn <- train[sample, ]
+#testn  <- train[-sample, ]
+```
+
+#7. Data Modelling
+## Logistic Regression
+
+For this prediction I intended to use logistic regression using the step-wise feature selection approach, however the model not converging. Among the suggested solutions is the use of lasso regression, which is what I found easiest to implement.
+
+```{r}
+#splitting the data
+set.seed(123)
+#dropping the LoanID column as it causes dimensionality problems
+train <- train[-1]
+training.samples <- train$Loan_Status %>% 
+  createDataPartition(p = 0.7, list = FALSE)
+train.data  <- train[training.samples, ]
+test.data <- train[-training.samples, ]
+```
+
+```{r}
+# Creating Dummy variables for categorical predictor variables
+x <- model.matrix(Loan_Status~., train.data)[,-1]
+# Convert the outcome (class) to a numerical variable
+y <- ifelse(train.data$Loan_Status == "Y", 1, 0)
+```
+
+```{r}
+#fitting the penalized lasso regression model
+#loading library
+library(glmnet)
+```
+
+```{r}
+# Find the best lambda using cross-validation
+set.seed(123) 
+cv.lasso <- cv.glmnet(x, y, alpha = 1, family = "binomial")
+# Fit the final model on the training data
+model <- glmnet(x, y, alpha = 1, family = "binomial",
+                lambda = cv.lasso$lambda.min)
+# Display regression coefficients
+coef(model)
+# Make predictions on the test data
+x.test <- model.matrix(Loan_Status ~., test.data)[,-1]
+probabilities <- model %>% predict(newx = x.test)
+predicted.classes <- ifelse(probabilities > 0.5, "Y", "N")
+# Model accuracy
+observed.classes <- test.data$Loan_Status
+mean(predicted.classes == observed.classes)
+#Only CreditHistory has a coefficient greater than 1
+```
+```{r}
+set.seed(123)
+cv.lasso <- cv.glmnet(x, y, alpha = 1, family = "binomial")
+plot(cv.lasso)
+#optimal lambda is approximately -5
+```
+```{r}
+cv.lasso$lambda.min
+#This is the exact value of lambda
+```
+
+```{r}
+#cv.glmnet() finds also the value of lambda that gives the simplest model but also lies within one standard error of the optimal value of lambda. This value is called lambda.1se
+cv.lasso$lambda.1se
+```
+```{r}
+#Using lambda.min as the best lambda, gives the following regression coefficients:
+coef(cv.lasso, cv.lasso$lambda.min)
+```
+
+```{r}
+#Using lambda.1se as the best lambda, gives the following regression coefficients:
+coef(cv.lasso, cv.lasso$lambda.1se)
+
+#Only credit history has a coefficient greater than 1
+```
+
+```{r}
+# Final model with lambda.min
+lasso.model <- glmnet(x, y, alpha = 1, family = "binomial",
+                      lambda = cv.lasso$lambda.min)
+# Make prediction on test data
+x.test <- model.matrix(Loan_Status ~., test.data)[,-1]
+probabilities <- lasso.model %>% predict(newx = x.test)
+predicted.classes <- ifelse(probabilities > 0.5, "Y", "N")
+# Model accuracy
+observed.classes <- test.data$Loan_Status
+mean(predicted.classes == observed.classes)
+```
+```{r}
+# Final model with lambda.1se
+lasso.model <- glmnet(x, y, alpha = 1, family = "binomial",
+                      lambda = cv.lasso$lambda.1se)
+# Make prediction on test data
+x.test <- model.matrix(Loan_Status ~., test.data)[,-1]
+probabilities <- lasso.model %>% predict(newx = x.test)
+predicted.classes <- ifelse(probabilities > 0.5, "Y", "N")
+# Model accuracy rate
+observed.classes <- test.data$Loan_Status
+mean(predicted.classes == observed.classes)
+```
+```{r}
+# Fit the model
+full.model <- glm(Loan_Status ~., data = train.data, family = binomial)
+# Make predictions
+probabilities <- full.model %>% predict(test.data, type = "response")
+predicted.classes <- ifelse(probabilities > 0.5, "Y", "N")
+# Model accuracy
+observed.classes <- test.data$Loan_Status
+mean(predicted.classes == observed.classes)
+```
+# 7. Further Discussion
+
+From the EDA and interpretation of logistic regression co-efficients, the factor that influences an individuals' loan status the most is their CreditHistory. This is in line with the hypothesis that most credit is given on the basis of historical data. There is a lot room to re-imagine credit eligibility by collecting and analyzing more data to understand borrowing and payment patterns better.
+
+This data can be subjected to other prediction or classification techniques such as decision trees, random forests, SVM and KNN to see how much the results vary. However, from other peoples' projects the results are very similar pointing at the use of historical data to determine loan eligibility.
